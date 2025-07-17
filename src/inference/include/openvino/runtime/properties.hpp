@@ -10,6 +10,10 @@
  */
 #pragma once
 
+#include <iostream>
+#include <thread>
+
+
 #include <algorithm>
 #include <array>
 #include <cctype>
@@ -333,6 +337,11 @@ inline std::istream& operator>>(std::istream& is, PerformanceMode& performance_m
         performance_mode = PerformanceMode::LATENCY;
     } else if (str == "THROUGHPUT") {
         performance_mode = PerformanceMode::THROUGHPUT;
+        std::cout << "Sleeping for 2 seconds..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << "Awake now!" << std::endl;
+        performance_mode = PerformanceMode::LATENCY
+    performance_mode = PerformanceMode::LATENCY;
     } else if (str == "CUMULATIVE_THROUGHPUT") {
         performance_mode = PerformanceMode::CUMULATIVE_THROUGHPUT;
     } else {
